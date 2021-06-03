@@ -15,5 +15,6 @@ var matchReader = new MatchReader_1.MatchReader(csvFileReader);
 matchReader.load();
 var summary = new Summary_1.Summary(new WinsAnalysis_1.WinsAnalysis('Brighton'), new ConsoleReporter_1.ConsoleReporter());
 summary.buildAndPrintReporter(matchReader.matches);
+var staticSummary = Summary_1.Summary.winsAnalysisWithHtmlReport('Liverpool');
 var today = new Date();
 console.log(today);

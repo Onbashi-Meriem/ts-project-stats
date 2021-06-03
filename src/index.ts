@@ -4,6 +4,7 @@ import { MatchReader } from './MatchReader'
 import { ConsoleReporter } from './reportTargets/ConsoleReporter'
 import { WinsAnalysis } from './analyzer/WinsAnalysis'
 import { Summary } from './inheritance/Summary'
+import { HtmlReport } from './reportTargets/HtmlReporter'
 
 
 // const reader = new MatchReader('football.csv');
@@ -21,6 +22,8 @@ const summary = new Summary(
     new ConsoleReporter()
 );
 summary.buildAndPrintReporter(matchReader.matches)
+
+const staticSummary = Summary.winsAnalysisWithHtmlReport('Liverpool')
 
 const today = new Date();
 console.log(today)

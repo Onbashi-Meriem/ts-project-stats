@@ -1,4 +1,6 @@
-import { Console } from "console";
+import { WinsAnalysis } from '../analyzer/WinsAnalysis'
+// import { HtmlReporter } from '../reportTargets/HtmlReporter '
+import { ConsoleReporter } from '../reportTargets/ConsoleReporter'
 import { MatchData } from "../MatchData";
 
 export interface Analyzer {
@@ -9,6 +11,13 @@ export interface OutputTarget {
     print(report: string): void;
 }
 export class Summary {
+    static winsAnalysisWithHtmlReport(team: string): Summary {
+        return new Summary(
+            new WinsAnalysis(team),
+            new ConsoleReporter()
+
+        )
+    }
     constructor(public analyzer: Analyzer, public outputTarget: OutputTarget) { }
 
     buildAndPrintReporter(matches: MatchData[]): void {
