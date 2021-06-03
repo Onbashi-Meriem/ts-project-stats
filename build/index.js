@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var CsvFileReader_1 = require("./CsvFileReader");
+// import { CsvFileReader } from './CsvFileReader'
+var MatchReader_1 = require("./MatchReader");
 var MatchResults_1 = require("./MatchResults");
-var reader = new CsvFileReader_1.CsvFileReader('football.csv');
+var reader = new MatchReader_1.MatchReader('football.csv');
 reader.read();
+var dateOfFristMatch = reader.data[0][0];
 var manUnitedWins = 0;
 var today = new Date();
 console.log(today);
